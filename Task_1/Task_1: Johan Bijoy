@@ -1,12 +1,12 @@
-Simulation link - 
-https://www.tinkercad.com/things/fm6TCQ1CizE-keypad-locking-system-with-led-lights
+###Simulation link 
+Visit https://www.tinkercad.com/things/fm6TCQ1CizE-keypad-locking-system-with-led-lights
 
-libraries included :
+###libraries included :
 Wire -- to facilitate communication with board and various I2C devices.
 Keypad -- to simplify the process of reading the input from the matrix styled keyboard
 LiquidCrystal_I2C -- to easily control an i2c based lcd monitor
 
-Explanation--
+###Explanation--
 After importing the libraries the program then initializes certain constant and variables. The program then initializes a keypad object using the keypad library.
 It creates a keypad class assigns it to the variable keypad. It allows us to interact with the keypad, detect key presses, and retrieve input.
 makeKeymap(keys) function converts the 2D array of the "keys" into a format that the keypad library can understand.
