@@ -1,7 +1,10 @@
 Github Simulation link:
 https://www.tinkercad.com/things/ggyiUgSD42C-task-1?sharecode=b2XlYcM3pI43HVLTx07D5ArmW-WmOelfik_PQUSpXNU
 
+
 Explanation of code:
+In the preprocessor part we include the required files liquid crystal for the display by the lcd screen and keypad for the 4x4 keypad.Then here im inputting a password that it will check the code we input via the 4x4 keypad in real time against, this case password is 1947. setting a variable i=0, acts as a counter for the number of digits input and it checks against preset password only when i=4. Making an array called code with type char to store the code we input in real time while simulation runs. Initializing the keypad with all 4 rows and only 3 columns as we are not using A,B,C,D. Configuring pins of arudino to rows and colums.In void setup starting cursor on lcd screen from 0th row and 0th column then defining pins for leds and giving instruction to start lcd and printin "Enter Password". In void loop firstly we get the key that gets input during simulation and we use an if(key) to make sure garbage value doesnt come. We do first lcd.clear() in case any previous access granted or denied message was running and put "Enter Password" again. We make a variable t=1 in case the password is right in case it is wrong it gets switched to 0 and gives output likewise. Following is the code for the two cases where the leds get lit for 1 sec and the message is displayed.
+
 
 Code:
 #include <LiquidCrystal.h>
