@@ -1,1 +1,75 @@
-is this one diff
+Github Simulation link:
+https://www.tinkercad.com/things/ggyiUgSD42C-task-1?sharecode=b2XlYcM3pI43HVLTx07D5ArmW-WmOelfik_PQUSpXNU
+
+Explanation of code:
+
+Code:
+#include <LiquidCrystal.h>
+#include <Keypad.h>
+const int rs=12, en=11,d4=A3,d5=A2, d6=A1,d7=A0;
+LiquidCrystal lcd(rs,en,d4,d5,d6,d7);
+
+const char  pass[4]={'1','9','4','7'};
+int i=0;
+char code[4];
+const byte ROWS=4;
+const byte COLS=3;
+char keys[ROWS][COLS]={
+  {'1','2','3'},
+  {'4','5','6'},
+  {'7','8','9'},
+  {'*','0','#'}};
+  
+  byte rowpins[ROWS]={9,8,7,6};
+  byte columnpins[COLS]={5,4,3};
+Keypad keypad=Keypad( makeKeymap(keys),rowpins,columnpins,ROWS,COLS);
+  
+  void setup(){
+    
+    lcd.setCursor(0,0);
+    
+    Serial.begin(9600);
+  pinMode(13,OUTPUT);
+   pinMode(10,OUTPUT);
+  lcd.begin(16,2);
+  lcd.print("enter password");}
+
+  void loop(){
+   
+
+    char key=keypad.getKey();
+
+    if(key){
+    lcd.clear();
+    lcd.print("enter password");
+    Serial.println(key);
+    code[i]=key;
+      i++;}
+    
+    int t=1;
+    if(i==4){
+      for(int k=0;k<4;k++){
+        if(pass[k]!=code[k]){
+          t=0;}
+      i=0;}
+          
+    if(t){
+      digitalWrite(13,HIGH);
+      lcd.clear();
+      lcd.print("access granted");
+      delay(1000);
+      digitalWrite(13,LOW);
+     
+      
+    }
+      
+      else{
+      digitalWrite(10,HIGH);
+      lcd.clear();
+      lcd.print("access denied");
+      delay(1000);
+      digitalWrite(10,LOW);
+      
+      }
+      }}
+
