@@ -1,14 +1,16 @@
-Simulation link
+<h1>ENVISION TASK 1</h1>
+
+<h3>Simulation link</h3>
 
 Visit https://www.tinkercad.com/things/fm6TCQ1CizE-keypad-locking-system-with-led-lights
 
-libraries included :
+<h3>libraries included</h3>
 
 **Wire** -- to facilitate communication with board and various I2C devices.\
 **Keypad** -- to simplify the process of reading the input from the matrix styled keyboard\
 **LiquidCrystal_I2C** -- to easily control an i2c based lcd monitor
 
-Explanation--
+<h3>Explanation of the code</h3>
 + After importing the libraries the program then initializes certain constant and variables.
 
 + The program then initializes a keypad object using the keypad library. It creates a keypad class assigns it to the variable keypad. It allows us to interact with the keypad, detect key presses, and retrieve input.
@@ -31,6 +33,8 @@ Explanation--
 
 + The program then accepts the input from the user and then checks whether it matches with predefined password in the code. If the password enterred matches the green light start to glow with the message access granted on the screen else if it does'nt match the red light starts to glow along with the message access denied in the screen.
 
+<h3>Working Images</h3>
+
 
 ![Screenshot 2025-03-05 080221](https://github.com/user-attachments/assets/0ab426f8-ce71-4581-9f25-b9d4952f1ff5)
 
@@ -39,5 +43,9 @@ Explanation--
 
 
 ![Screenshot 2025-03-05 080310](https://github.com/user-attachments/assets/d75acbda-c0ba-4484-8073-87e6228f5d13)
+
+
+<h3>Source Code</h3>
+
 
 
