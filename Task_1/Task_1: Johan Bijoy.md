@@ -33,6 +33,9 @@ Visit https://www.tinkercad.com/things/fm6TCQ1CizE-keypad-locking-system-with-le
 
 + The program then accepts the input from the user and then checks whether it matches with predefined password in the code. If the password enterred matches the green light start to glow with the message access granted on the screen else if it does'nt match the red light starts to glow along with the message access denied in the screen.
 
++ It also prevent the LCD monitor from having 16 or more characters on the screen at a time
+
+
 <h3>Working Images</h3>
 
 
