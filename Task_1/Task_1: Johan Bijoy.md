@@ -31,4 +31,13 @@ Explanation--
 
 + The program then accepts the input from the user and then checks whether it matches with predefined password in the code. If the password enterred matches the green light start to glow with the message access granted on the screen else if it does'nt match the red light starts to glow along with the message access denied in the screen.
 
-![Working Images] ()
+
+![Screenshot 2025-03-05 080221](https://github.com/user-attachments/assets/0ab426f8-ce71-4581-9f25-b9d4952f1ff5)
+
+
+![Screenshot 2025-03-05 080254](https://github.com/user-attachments/assets/17806444-43d0-43e1-a5d5-de65bf7702d1)
+
+
+![Screenshot 2025-03-05 080310](https://github.com/user-attachments/assets/d75acbda-c0ba-4484-8073-87e6228f5d13)
+
+
