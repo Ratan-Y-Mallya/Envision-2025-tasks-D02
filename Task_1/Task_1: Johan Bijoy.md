@@ -47,8 +47,3 @@ Visit https://www.tinkercad.com/things/fm6TCQ1CizE-keypad-locking-system-with-le
 
 <h3>Source Code</h3>
 Visit https://github.com/johanbijoy/Envision-Task_1-Source-code
-
-<h3>Source Code</h3>
-
-
-
