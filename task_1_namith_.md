@@ -15,7 +15,7 @@ Below are images showing different states of the circuit:
 
 | State | Image |
 |--------|--------|
-| Initial State| [INIT](Images/circuit_state_1.png) |
+| Initial State| [INIT](Screenshot 2025-03-09 140859.png) |
 | CORRECT PASSWORD |[CORRECT PASS](Images/circuit_state_2.png) |
 | WRONG PASSWORD | [WRONG PASS](IMG) |
 ---
