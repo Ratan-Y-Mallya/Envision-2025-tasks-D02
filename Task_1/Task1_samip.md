@@ -1,8 +1,8 @@
-Github Simulation link:  
+**Github Simulation link:**    
 https://www.tinkercad.com/things/ggyiUgSD42C-task-1?sharecode=b2XlYcM3pI43HVLTx07D5ArmW-WmOelfik_PQUSpXNU
 
 
-Explanation of code:
+**Explanation of code:**  
 - In the preprocessor part we include the required files liquid crystal for the display by the lcd screen  
   and keypad for the 4x4 keypad.  
 - Then here im inputting a password that it will check the code we input  
@@ -21,7 +21,7 @@ Explanation of code:
 
 
 
-Code:  
+**Code:**    
 #include <LiquidCrystal.h>
 #include <Keypad.h>
 const int rs=12, en=11,d4=A3,d5=A2, d6=A1,d7=A0;
@@ -89,5 +89,11 @@ Keypad keypad=Keypad( makeKeymap(keys),rowpins,columnpins,ROWS,COLS);
       digitalWrite(10,LOW);
       
       }
-      }}
+      }}  
+
+**output:**    
+base case  
+![alt text](Basecase.png)  
+
+
 
