@@ -21,7 +21,7 @@ Below are images showing different states of the circuit:
 ---
 
 ##  Code 
-Link for the code :(https://www.tinkercad.com/things/k5wsofKvNwQ-envision-task-1)
+Link for the code :(https://github.com/namith17ap/Envision-2025-tasks-D02/blob/a92a03b664e4da13d99707325768ddeffc91f9f8/ENVISION_TASK_1.ino)
 ```cpp
 #include <Adafruit_LiquidCrystal.h>
 #include <Key.h>
