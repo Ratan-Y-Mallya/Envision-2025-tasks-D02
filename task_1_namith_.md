@@ -16,7 +16,7 @@ Below are images showing different states of the circuit:
 | State | Image |
 |--------|--------|
 | Initial State| [INIT](https://github.com/namith17ap/Envision-2025-tasks-D02/blob/367fc6072e20e7e2c1cc8bb4bc31c517cccef904/Screenshot%202025-03-09%20140859.png) |
-| CORRECT PASSWORD |[CORRECT PASS](Images/circuit_state_2.png) |
+| CORRECT PASSWORD |[CORRECT PASS](https://github.com/namith17ap/Envision-2025-tasks-D02/blob/1c7230965cd73c274070da953c5ec9fce0c056b3/Screenshot%202025-03-09%20140935.png) |
 | WRONG PASSWORD | [WRONG PASS](IMG) |
 ---
 
