@@ -1,4 +1,4 @@
-Github Simulation link:
+Github Simulation link:  
 https://www.tinkercad.com/things/ggyiUgSD42C-task-1?sharecode=b2XlYcM3pI43HVLTx07D5ArmW-WmOelfik_PQUSpXNU
 
 
@@ -21,7 +21,7 @@ Explanation of code:
 
 
 
-Code:
+Code:  
 #include <LiquidCrystal.h>
 #include <Keypad.h>
 const int rs=12, en=11,d4=A3,d5=A2, d6=A1,d7=A0;
