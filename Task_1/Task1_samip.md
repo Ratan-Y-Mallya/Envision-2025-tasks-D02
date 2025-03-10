@@ -92,8 +92,14 @@ Keypad keypad=Keypad( makeKeymap(keys),rowpins,columnpins,ROWS,COLS);
       }}  
 
 **output:**    
-base case  
-![alt text](Basecase.png)  
+Base Case  
+![alt text](image.png)
+
+Access Granted  
+![alt text](image-1.png)
+
+Access Denied
+![alt text](image-2.png)
 
 
 
