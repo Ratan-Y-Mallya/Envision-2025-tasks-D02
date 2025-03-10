@@ -93,13 +93,13 @@ Keypad keypad=Keypad( makeKeymap(keys),rowpins,columnpins,ROWS,COLS);
 
 **output:**    
 Base Case  
-![alt text](image.png)
+![alt text](neutral.png)
 
 Access Granted  
-![alt text](image-1.png)
+![alt text](pos.png)
 
 Access Denied
-![alt text](image-2.png)
+![alt text](neg.png)
 
 
 
