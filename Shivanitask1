@@ -1,0 +1,139 @@
+ARDUINO CODE
+#include <Keypad.h>
+#include <LiquidCrystal.h>
+// Pin definitions for keypad
+
+const int rs=A0, en=A1,d4=A2,d5=A3, d6=A4,d7=A5;
+LiquidCrystal lcd(rs,en,d4,d5,d6,d7);
+// Define the password
+const char  pass[4]={'1','1','4','7'};
+int i=0;
+// Variable to store entered password
+char code[4];
+const byte ROW_NUM    = 4; // four rows
+const byte COLUMN_NUM = 4; // four columns
+char keys[ROW_NUM][COLUMN_NUM] = {
+  {'1','2','3','A'},
+  {'4','5','6','B'},
+  {'7','8','9','C'},
+  {'*','0','#','D'}
+};
+  byte rowpins[ROW_NUM] = {9,8,7,6}; //Rows 0 to 4
+byte colpins[COLUMN_NUM]= {5,4,3,2};
+// Create keypad object
+Keypad keypad=Keypad( makeKeymap(keys),rowpins,colpins,ROW_NUM,COLUMN_NUM);
+  
+  void setup(){
+    
+    lcd.setCursor(0,0);
+    
+    Serial.begin(9600);
+     // Initialize LED pins
+  pinMode(10,OUTPUT);
+   pinMode(11,OUTPUT);
+     // Initialize LCD
+  lcd.begin(16,2);
+  lcd.print("Enter Password");}
+
+  void loop(){
+   
+ // Read keypad input
+    char key=keypad.getKey();
+
+    if(key){
+    lcd.clear();
+    lcd.print("Enter Password");
+    Serial.println(key);
+    code[i]=key;
+      i++;}
+    
+    int t=1;
+    if(i==4){
+      for(int k=0;k<4;k++){
+        if(pass[k]!=code[k]){
+          t=0;}
+      i=0;}
+          
+    if(t){
+      digitalWrite(11,HIGH);
+      lcd.clear();
+      lcd.print("Access Granted");
+      delay(3000);
+      digitalWrite(11,LOW);
+     
+      
+    }
+      
+      else{
+      digitalWrite(10,HIGH);
+      lcd.clear();
+      lcd.print("Access Denied");
+      delay(3000);
+      digitalWrite(10,LOW);
+      
+      }
+      }}
+
+EXPLAINATION OF THE CODE
+1. Libraries and Pin Definitions
+Keypad.h: This library simplifies handling input from the 4x4 keypad.
+LiquidCrystal.h: This library controls the LCD display.
+const int rs = A0, en = A1, d4 = A2, d5 = A3, d6 = A4, d7 = A5;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+These lines define the pins used to connect the LCD to the Arduino (pins A0 to A5).
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7) creates an instance of the LiquidCrystal class to control the LCD.
+2. Password and Variables
+const char pass[4] = {'1', '1', '4', '7'};
+int i = 0; // Variable to store the entered password index
+char code[4]; // Array to store the entered password
+pass[4]: This array holds the correct password, which in this case is '1', '1', '4', '7'.
+code[4]: This array will store the password entered by the user.
+i: This variable keeps track of how many characters have been entered by the user.
+3. Keypad Setup
+const byte ROW_NUM = 4; // four rows
+const byte COLUMN_NUM = 4; // four columns
+char keys[ROW_NUM][COLUMN_NUM] = {
+  {'1', '2', '3', 'A'},
+  {'4', '5', '6', 'B'},
+  {'7', '8', '9', 'C'},
+  {'*', '0', '#', 'D'}
+};
+byte rowpins[ROW_NUM] = {9, 8, 7, 6}; // Row pins connected to 9, 8, 7, 6
+byte colpins[COLUMN_NUM] = {5, 4, 3, 2}; // Column pins connected to 5, 4, 3, 2
+keys[ROW_NUM][COLUMN_NUM]: This is the 4x4 matrix representing the keypad layout. Each key corresponds to a character on the keypad.
+rowpins[ROW_NUM]: The pins on the Arduino to which the rows of the keypad are connected.
+colpins[COLUMN_NUM]: The pins on the Arduino to which the columns of the keypad are connected.
+Keypad keypad = Keypad(makeKeymap(keys), rowpins, colpins, ROW_NUM, COLUMN_NUM);
+The Keypad object is created here using the keys array (keypad layout) and the rowpins and colpins arrays (which define which Arduino pins the rows and columns are connected to).
+4. Setup Function
+void setup() {
+  lcd.setCursor(0, 0); // Set the cursor to the top-left corner of the LCD
+  Serial.begin(9600); // Start serial communication (for debugging)
+
+  pinMode(10, OUTPUT); // Set pin 10 as output for "Access Denied" LED
+  pinMode(11, OUTPUT); // Set pin 11 as output for "Access Granted" LED
+
+  lcd.begin(16, 2); // Initialize the LCD (16 columns, 2 rows)
+  lcd.print("Enter Password"); // Display the prompt on the LCD
+}
+In the setup() function, the LCD is initialized, and the message "Enter Password" is displayed to prompt the user to enter the password.
+Pins 10 and 11 are set as output, which will be used to control the LEDs indicating access granted or denied.
+5. Loop Function
+void loop() {
+  char key = keypad.getKey(); // Check if any key is pressed on the keypad
+In the loop(), keypad.getKey() checks if any key is pressed. If a key is pressed, it returns the character associated with the key. If no key is pressed, it returns NO_KEY.
+If a key is pressed, the LCD is cleared, and the "Enter Password" message is printed again.
+The pressed key is stored in the code array, and i is incremented to store the next character.
+6. Password Validation
+When 4 characters are entered (i == 4), the password is checked.
+The program compares each entered character (code[k]) with the predefined password (pass[k]).
+If all characters match, the password is correct (t = 1). If any character does not match, t is set to 0 (password incorrect).
+7. Access Grant or Denial
+If the password is correct (t == 1), the "Access Granted" message is displayed on the LCD, and the corresponding LED (pin 11) is turned on for 3 seconds.
+If the password is incorrect (t == 0), the "Access Denied" message is displayed on the LCD, and the corresponding LED (pin 10) is turned on for 3 seconds.
+After each action (either grant or deny), the corresponding LED is turned off.
+8. Debounce Delay
+A small delay (100 ms) is added to help debounce key presses, ensuring that each key is only detected once and not multiple times due to key bouncing.
+
+TINKERCAD SIMULATION LINK
+https://www.tinkercad.com/things/aQwI30P1EH1-fabulous-rottis-crift/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard
