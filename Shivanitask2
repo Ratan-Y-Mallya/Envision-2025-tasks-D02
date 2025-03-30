@@ -1,0 +1,76 @@
+CODE:
+import cv2
+import mediapipe as mp
+import pyautogui
+capture=cv2.VideoCapture(0) #from webcam
+hand_detector=mp.solutions.hands.Hands()
+drawing_utils=mp.solutions.drawing_utils
+screen_width,screen_height=pyautogui.size()
+index_y=0
+c='S'
+while True:
+    _,frame=capture.read()
+    frame=cv2.flip(frame, 1) #in y axis
+    frame_height,frame_width,_=frame.shape
+    rgb_frame=cv2.cvtColor(frame,cv2.COLOR_BGR2RGB) #change of order
+    output=hand_detector.process(rgb_frame)
+    hands=output.multi_hand_landmarks
+    if hands:
+        for hand in hands:
+            drawing_utils.draw_landmarks(frame,hand)
+            landmarks=hand.landmark
+            for id, landmark in enumerate(landmarks):
+                x=int(landmark.x*frame_width)
+                y=int(landmark.y*frame_height)
+                if id==8:
+                  cv2.circle(img=frame,center=(x,y),radius=10,color=(0,255,255)) 
+                  index_x=screen_width/frame_width*x
+                  index_y=screen_height/frame_height*y
+                  pyautogui.moveTo(index_x,index_y)
+                if id==4:
+                  cv2.circle(img=frame,center=(x,y),radius=10,color=(0,255,255)) 
+                  thumb_x=screen_width/frame_width*x
+                  thumb_y=screen_height/frame_height*y
+                  print("outside",abs(thumb_y-index_y))
+                  if abs(thumb_y-index_y)<20:
+                     pyautogui.click()
+                     pyautogui.sleep(1)
+    # Check for keyboard input
+    key = cv2.waitKey(1) & 0xFF
+    
+    # If the first letter of your name is pressed, stop the program
+    if key == ord(c.lower()) or key == ord(c.upper()):
+        print(f"Program stopped. You pressed the letter '{c}'.")
+        break
+        
+
+    print(hands)
+    cv2.imshow("Virtual Mouse",frame)
+    cv2.waitKey(1)
+cv2.destroyAllWindows()
+
+EXPLAINATION:
+This code implements a virtual mouse using hand tracking with the MediaPipe library, combined with the pyautogui library to simulate mouse movements and clicks based on hand landmarks. It tracks the index finger (ID 8) and thumb (ID 4) to control the cursor and click actions.
+
+Here’s a breakdown of the key parts of the code:
+
+Code Overview:
+Webcam Capture and Flip:
+capture = cv2.VideoCapture(0) opens the webcam for capturing frames. The frame is flipped horizontally for a mirror effect with frame = cv2.flip(frame, 1).
+
+Hand Detection: The hand landmarks are processed through hand_detector.process(rgb_frame) where the landmarks are detected by MediaPipe.
+
+Tracking Index Finger and Thumb:
+
+Index Finger (ID 8): This is tracked to control the mouse pointer. The (x, y) coordinates of the index finger are used to calculate the position of the cursor on the screen.
+
+Thumb (ID 4): The thumb is used to detect the clicking action. If the thumb is close to the index finger (within a distance of 20 pixels), it simulates a mouse click using pyautogui.click().
+
+Keypress to Stop:
+The program stops when the first letter of your name is pressed on the keyboard. The letter is stored in the variable c (currently 'S'), and if that letter is pressed, the program prints a message and breaks the loop.
+
+Mouse Control via pyautogui:
+
+The cursor moves to the calculated position using pyautogui.moveTo(index_x, index_y).
+
+A click action is triggered when the thumb and index finger come close together.
