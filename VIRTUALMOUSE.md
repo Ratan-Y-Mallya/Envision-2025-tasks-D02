@@ -56,4 +56,4 @@ First we define the hand solutions of the mediapipe library. Using pyautogui we 
 using 0xFF==ord('n') (ord returns the ascii value and 0xFF detcts the click of a character on the keyboard) we break the loop,thus forsing the window to close.
 
 ## HAND COORDINATES :
-![HAND_SCREENSHOT](images/)
+![HAND_SCREENSHOT](images/https://github.com/namith17ap/Envision-2025-tasks-D02/blob/639940cef0a447194f789b836898dfea173a4056/hand_screenshot.png)
